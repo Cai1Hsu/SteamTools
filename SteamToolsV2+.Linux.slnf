@@ -15,7 +15,6 @@
       "references\\ArchiSteamFarm\\ArchiSteamFarm.Library\\ArchiSteamFarm.Library.csproj",
       "tests\\Common.UnitTest\\Common.UnitTest.csproj",
       "tests\\ST.Client.UnitTest\\ST.Client.UnitTest.csproj",
-      "tests\\ST.Client.Desktop.UnitTest\\ST.Client.Desktop.UnitTest.csproj",
       "src\\ST\\ST.csproj",
       "src\\ST.Client\\ST.Client.csproj",
       "src\\ST.Client.Desktop\\ST.Client.Desktop.csproj",
