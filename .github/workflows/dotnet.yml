@@ -44,17 +44,9 @@ jobs:
     - name: dotnet info
       run: dotnet --info
       
-    - name: dotnet restore SteamToolsV2+.sln
-      if: matrix.os == 'windows-latest'
-      run: dotnet restore ./SteamToolsV2+.sln
-      
-    - name: dotnet restore SteamToolsV2+.Linux.sln
-      if: matrix.os == 'ubuntu-latest'
+    - name: dotnet restore SteamToolsV2+.Linux.slnf
       run: dotnet restore ./SteamToolsV2+.Linux.slnf
       
-    - name: dotnet restore SteamToolsV2+.Mac.sln
-      if: matrix.os == 'macOS-latest'
-      run: dotnet restore ./SteamToolsV2+.Mac.slnf
+    - name: dotnet restore SteamToolsV2+.Linux.sln
+      run: dotnet build ./SteamToolsV2+.Linux.slnf
       
-    - name: dotnet AvaloniaApp build
-      run: dotnet build ./src/ST.Client.Desktop.Avalonia.App/ST.Client.Avalonia.App.csproj
