@@ -11,6 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}    
     strategy:
       matrix:
+	# compile on linux is not avaliable
 #        os: [ windows-latest, macOS-latest, ubuntu-latest ]
         os: [ windows-latest ]
     steps:
@@ -41,12 +42,13 @@ jobs:
     - name: Checkout submodules
       run: git submodule update --init --recursive
 
-    - name: dotnet info
-      run: dotnet --info
-      
+#    - name: dotnet info
+#      run: dotnet --info
+    - name: dotnet restore SteamToolsV2+.sln
+      run: dotnet restore ./SteamToolsV2+.sln
+
     - name: dotnet restore SteamToolsV2+.Linux.slnf
       run: dotnet restore ./SteamToolsV2+.Linux.slnf
       
-    - name: dotnet restore SteamToolsV2+.Linux.sln
+    - name: dotnet build SteamToolsV2+.Linux.sln
       run: dotnet build ./SteamToolsV2+.Linux.slnf
-      
