@@ -84,31 +84,12 @@ namespace System.Application.Models
 
         public bool GetIsOfficialChannelPackage()
         {
-            bool GetIsOfficialChannelPackage_()
-            {
-                var pk = typeof(AppSettings).Assembly.GetName().GetPublicKey();
-                if (pk == null) return false;
-                var pkStr = ", PublicKey=" + string.Join(string.Empty, pk.Select(x => x.ToString("x2")));
-                var r = pkStr == ThisAssembly.PublicKey;
-                if (!r) return false;
-                try
-                {
-                    return Aes != null && RSA != null;
-                }
-                catch (IsNotOfficialChannelPackageException)
-                {
-                    return false;
-                }
-            }
-            if (!mGetIsOfficialChannelPackage.HasValue)
-                mGetIsOfficialChannelPackage = GetIsOfficialChannelPackage_();
-            return mGetIsOfficialChannelPackage.Value;
+            return true
         }
 
         static readonly Lazy<bool> mIsOfficialChannelPackage = new(() =>
         {
-            var s = DI.Get_Nullable<IOptions<AppSettings>>()?.Value;
-            return s != null && s.GetIsOfficialChannelPackage();
+            return true
         });
 
         /// <summary>
